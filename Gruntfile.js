@@ -442,7 +442,7 @@ module.exports = function (grunt) {
     gitcommit: {
       task: {
         options: {
-          message: 'Grunt Build - updated on ' + grunt.template.today(),
+          message: 'Grunt Automatid Build, Git Commit - updated on ' + grunt.template.today(),
           allowEmpty: true,
           cwd: '.'
         }
@@ -466,7 +466,7 @@ module.exports = function (grunt) {
   grunt.registerTask('git', [
     'gitadd',
     'gitcommit',
-    //'gitpush'
+    'gitpush'
   ]);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -513,7 +513,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'git'
   ]);
 
   grunt.registerTask('default', [
