@@ -454,8 +454,6 @@ module.exports = function (grunt) {
       task: {
         options: {
           remote: 'origin',
-          branch: 'master',
-          cwd: '.'
         }
       }
     }
