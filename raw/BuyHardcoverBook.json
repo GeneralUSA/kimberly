@@ -1,0 +1,16 @@
+[
+  {
+    "MenuType": "Page",
+    "Title": "About the book",
+    "Icon": "/Assets/DataImages/LDhc-1.png",
+    "Target": "AboutTheBookListPage",
+    "_id": "d1e92c53-1a1c-4eaf-b772-9dcf2a0ffd67"
+  },
+  {
+    "MenuType": "Page",
+    "Title": "Browse scriptures",
+    "Icon": "/Assets/DataImages/collection.png",
+    "Target": "BrowseScripturesListPage",
+    "_id": "4db70712-1f15-4805-9edb-fc29d7b2edea"
+  }
+]

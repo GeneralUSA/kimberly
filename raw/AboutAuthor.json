@@ -1,0 +1,30 @@
+[
+  {
+    "MenuType": "Page",
+    "Title": "About the editor",
+    "Icon": "/Assets/DataImages/LDhc-4.png",
+    "Target": "AboutTheAuthorListPage",
+    "_id": "a9bd83d9-306c-485a-ab68-bc9c45407824"
+  },
+  {
+    "MenuType": "DeepLink",
+    "Title": "LDurl",
+    "Icon": "/Assets/DataImages/url.png",
+    "Target": "http://www.lawyersdevotional.com/",
+    "_id": "12ec3d4e-1408-4296-a576-17c804146421"
+  },
+  {
+    "MenuType": "DeepLink",
+    "Title": "Email",
+    "Icon": "/Assets/DataImages/mailto.png",
+    "Target": "mailto:lawyersdevotional@gmail.com",
+    "_id": "323d05f2-ba09-46bc-bb70-47f12e63a5db"
+  },
+  {
+    "MenuType": "Page",
+    "Title": "Help or Feedback",
+    "Icon": "/Assets/DataImages/send.png",
+    "Target": "HelpOrFeedbackListPage",
+    "_id": "853bb32c-f207-480a-ac39-d44589121a02"
+  }
+]

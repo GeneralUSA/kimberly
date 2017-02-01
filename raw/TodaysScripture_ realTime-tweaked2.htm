@@ -1,0 +1,63 @@
+<div class="main">
+   <div class="date">
+        <h1 class="date">tweak-package TODAY  <br />
+		<span id="CurrentDate"></span></h1>
+        <h2 class="date"> <span id="CurrentTime"></span></h2>
+   </div>
+   
+   <div class="script">
+<!--        <h3>My Verse</h3>	-->
+        <p class="quote"><span id="CurrentVerse"></span></p>
+		<p class="refT"><span id="CurrentVerseRefTag"></span></p>
+
+        <p class="quote2"><span id="CurrentVerse2"></span></p>
+		<p class="refT2"><span id="CurrentVerseRefTag2"></span></p>      
+    </div> 
+</div>       
+        
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="moment.min.js"></script>
+<script type="text/javascript">    
+	
+	
+           var my_verse_database = {};
+            // Check if your JSON is malformed by going to http://jsonlint.com
+            // Load the Database
+            $.getJSON("LD_database.json", function(json) {
+                  my_verse_database = json;
+                  console.log(json);
+                  init();
+            });
+                        
+                        
+            function init() {
+            
+               console.log(my_verse_database);
+               // Using Moment JS
+               // http://momentjs.com      for date/time codes:  http://momentjs.com/docs/#/parsing/
+               var theCurrentDate = moment().format('MMMM D');
+               $("#CurrentDate").html(moment().format('MMMM D'));
+               $("#CurrentVerse").html(my_verse_database[theCurrentDate]["quote"]);
+               $("#CurrentVerseRefTag").html(my_verse_database[theCurrentDate]["refTag"]);
+   
+               
+               //Initialize Time
+               $("#CurrentTime").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+               
+               // Checks every second the time. If the date has changed...update the quote
+               var myTimingInterval = setInterval(function() {
+                   $("#CurrentTime").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+                   
+                   
+                   if (theCurrentDate != moment().format('MMMM D')) {
+                       
+                       $("#CurrentDate").html(moment().format('MMMM D'));
+                       theCurrentDate = moment().format('MMMM D');
+                       
+                       $("#CurrentVerse").html(my_verse_database[theCurrentDate]["quote"]);
+                       $("#CurrentVerseRefTag").html(my_verse_database[theCurrentDate]["refTag"]);
+                   }
+                   
+               }, 1000);
+            }
+        </script>	

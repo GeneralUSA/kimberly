@@ -7,7 +7,12 @@
  * # kimberlyApp
  *
  * Main module of the application.
+ *
+ * Hi Kimberly,
+ *
+ * If you want to add pages here and javascript code, check out the $routeProvider below.
  */
+
 angular
   .module('kimberlyApp', [
     'ngAnimate',
@@ -22,12 +27,14 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+      })
+      .when('/calendar', {
+        templateUrl: 'views/calendar.html',
+        controller: 'CalendarCtrl',
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
       })
       .otherwise({
         redirectTo: '/'
