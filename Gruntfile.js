@@ -9,6 +9,9 @@
 
 module.exports = function (grunt) {
 
+  // ChrisP Git tasks.
+  grunt.loadNpmTasks('grunt-git');
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -423,9 +426,48 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    
+    gitadd: {
+      task: {
+        options: {
+          force: false,
+          all: true,
+          cwd: '.'
+        }
+      }
+    },
+ 
+    // git commit -m "Repository updated on <current date time>"
+    gitcommit: {
+      task: {
+        options: {
+          message: 'Grunt Build - updated on ' + grunt.template.today(),
+          allowEmpty: true,
+          cwd: '.'
+        }
+      }
+    },
+ 
+    // git push origin master
+    gitpush: {
+      task: {
+        options: {
+          remote: 'origin',
+          branch: 'master',
+          cwd: '.'
+        }
+      }
     }
   });
 
+  
+  // Create task
+  grunt.registerTask('git', [
+    'gitadd',
+    'gitcommit',
+    //'gitpush'
+  ]);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -481,8 +523,28 @@ module.exports = function (grunt) {
     'build'
   ]);
   
+  /*
   grunt.registerTask('build', [
     'clean:dist',
     'copy:devDist',
+  ]);
+  */
+  grunt.registerTask('build', [
+    'clean:dist',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:dist',
+    'postcss',
+    'ngtemplates',
+    'concat',
+    'ngAnnotate',
+    'copy:dist',
+    'cdnify',
+    'cssmin',
+    'uglify',
+    'filerev',
+    'usemin',
+    'htmlmin',
+    'git'
   ]);
 };
