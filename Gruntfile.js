@@ -496,7 +496,7 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('longbuild', [
+  grunt.registerTask('fullbuild', [
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -543,7 +543,6 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'git'
+    'htmlmin'
   ]);
 };
